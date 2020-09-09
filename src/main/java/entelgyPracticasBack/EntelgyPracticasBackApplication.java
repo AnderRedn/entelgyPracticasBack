@@ -39,6 +39,7 @@ public class EntelgyPracticasBackApplication implements CommandLineRunner {
 	}
 
 	private void createTables() {
+		/* FIRST WAY, opening conection manually */
 
 //		try {
 //			conn = DriverManager.getConnection(url);
@@ -64,30 +65,33 @@ public class EntelgyPracticasBackApplication implements CommandLineRunner {
 //			}
 //		}
 
+		/* SECOND WAY, using jdbctemplate */
+
 //		jdbcTemplate.execute("DROP TABLE departamentos");
-		jdbcTemplate.execute("CREATE TABLE departamentos (codDepto VARCHAR(4) NOT NULL PRIMARY KEY,"
-				+ "  nombreDpto VARCHAR(20) NOT NULL, ciudad VARCHAR(15), codDirector VARCHAR(12))");
+//		jdbcTemplate.execute("CREATE TABLE departamentos (codDepto VARCHAR(4) NOT NULL PRIMARY KEY,"
+//				+ "  nombreDpto VARCHAR(20) NOT NULL, ciudad VARCHAR(15), codDirector VARCHAR(12))");
+//
+////		jdbcTemplate.update("INSERT INTO departamentos VALUES ('AVRQ', 'DPTO_1', 'ZAMURRIO', 'AASSDED')");
+////		System.out.println(jdbcTemplate.queryForObject("select count(*) from departamentos", Integer.class));
+//
+//		jdbcTemplate.execute("CREATE TABLE empleados (nDIEmp VARCHAR(12) NOT NULL PRIMARY KEY,"
+//				+ "  nomEmp VARCHAR(30) NOT NULL, sexEmp CHAR(1) NOT NULL, fecNac DATE NOT NULL,"
+//				+ "  fecIncorporacion DATE NOT NULL, salEmp FLOAT NOT NULL, comisionE FLOAT NOT NULL,"
+//				+ "  cargoE VARCHAR(15) NOT NULL, jefeID VARCHAR(12), codDepto varchar(4) NOT NULL)");
+//
+//		jdbcTemplate.execute(
+//				"ALTER TABLE departamentos ADD CONSTRAINT FK_DIR FOREIGN KEY (codDirector) REFERENCES empleados (nDIEmp) ON DELETE NO ACTION ON UPDATE NO ACTION");
+//		jdbcTemplate.execute(
+//				"ALTER TABLE empleados ADD CONSTRAINT FK_DPTO FOREIGN KEY (codDepto) REFERENCES departamentos (codDepto) ON DELETE NO ACTION ON UPDATE NO ACTION");
+//		jdbcTemplate.execute(
+//				"ALTER TABLE empleados ADD CONSTRAINT FK_JEFE_EMP FOREIGN KEY (jefeID) REFERENCES empleados (nDIEmp) ON DELETE NO ACTION ON UPDATE NO ACTION");
 
-//		jdbcTemplate.update("INSERT INTO departamentos VALUES ('AVRQ', 'DPTO_1', 'ZAMURRIO', 'AASSDED')");
-//		System.out.println(jdbcTemplate.queryForObject("select count(*) from departamentos", Integer.class));
+		/* THIRD WAY, using EmbeddedDatabaseBuilder + read from scipt */
+		EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();
+		EmbeddedDatabase db = builder.setType(EmbeddedDatabaseType.DERBY).addScript("db/empdbcreate.sql").build();
+		// do stuff against the db (EmbeddedDatabase extends javax.sql.DataSource)
+		// db.shutdown();
 
-		jdbcTemplate.execute("CREATE TABLE empleados (nDIEmp VARCHAR(12) NOT NULL PRIMARY KEY,"
-				+ "  nomEmp VARCHAR(30) NOT NULL, sexEmp CHAR(1) NOT NULL, fecNac DATE NOT NULL,"
-				+ "  fecIncorporacion DATE NOT NULL, salEmp FLOAT NOT NULL, comisionE FLOAT NOT NULL,"
-				+ "  cargoE VARCHAR(15) NOT NULL, jefeID VARCHAR(12), codDepto varchar(4) NOT NULL)");
-
-		jdbcTemplate.execute(
-				"ALTER TABLE departamentos ADD CONSTRAINT FK_DIR FOREIGN KEY (codDirector) REFERENCES empleados (nDIEmp) ON DELETE NO ACTION ON UPDATE NO ACTION");
-		jdbcTemplate.execute(
-				"ALTER TABLE empleados ADD CONSTRAINT FK_DPTO FOREIGN KEY (codDepto) REFERENCES departamentos (codDepto) ON DELETE NO ACTION ON UPDATE NO ACTION");
-		jdbcTemplate.execute(
-				"ALTER TABLE empleados ADD CONSTRAINT FK_JEFE_EMP FOREIGN KEY (jefeID) REFERENCES empleados (nDIEmp) ON DELETE NO ACTION ON UPDATE NO ACTION");
-
-//		EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();
-//		EmbeddedDatabase db = builder.setType(EmbeddedDatabaseType.DERBY).addScript("db/empdbcreate.sql").build();
-//		// do stuff against the db (EmbeddedDatabase extends javax.sql.DataSource)
-//		db.shutdown();
-		
 		logger.trace("Tables departamentos and empleados created.");
 	}
 }
