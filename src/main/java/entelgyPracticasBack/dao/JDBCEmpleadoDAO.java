@@ -43,11 +43,9 @@ public class JDBCEmpleadoDAO extends JdbcDaoSupport implements IEmpleadoDAO {
 			SqlMapClient sqlMap = SqlMapClientBuilder.buildSqlMapClient(reader);
 			emps = sqlMap.queryForList("getEmpleados", null);
 		} catch (IOException e) {
-			logger.error("JDBCEmpleadoDAO: File not found");
-			e.printStackTrace();
+			logger.error("JDBCEmpleadoDAO: File not found. " + e.getMessage());
 		} catch (SQLException e) {
-			logger.error("JDBCEmpleadoDAO: SQLException");
-			e.printStackTrace();
+			logger.error("JDBCEmpleadoDAO: SQLException. " + e.getMessage());
 		}
 		return emps;
 	}
