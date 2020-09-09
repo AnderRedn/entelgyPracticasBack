@@ -1,4 +1,4 @@
-package entelgyPracticasBack.modelo;
+package entelgyPracticasBack.model;
 
 import java.sql.Date;
 

@@ -19,7 +19,7 @@ import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 
 import entelgyPracticasBack.EntelgyPracticasBackApplication;
 import entelgyPracticasBack.datos.IEmpleadoDAO;
-import entelgyPracticasBack.modelo.Empleado;
+import entelgyPracticasBack.model.Empleado;
 
 @Repository
 public class JDBCEmpleadoDAO extends JdbcDaoSupport implements IEmpleadoDAO {

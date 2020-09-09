@@ -1,4 +1,4 @@
-package entelgyPracticasBack.modelo;
+package entelgyPracticasBack.model;
 
 public class Departamento {
 
