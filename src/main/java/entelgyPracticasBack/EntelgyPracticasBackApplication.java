@@ -5,8 +5,10 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import org.apache.ibatis.type.MappedTypes;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -16,6 +18,10 @@ import org.springframework.jdbc.datasource.embedded.EmbeddedDatabase;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 
+import entelgyPracticasBack.model.Empleado;
+
+@MappedTypes(Empleado.class)
+//@MapperScan("entelgyPracticasBack.mapper")
 @SpringBootApplication
 public class EntelgyPracticasBackApplication implements CommandLineRunner {
 
@@ -24,9 +30,9 @@ public class EntelgyPracticasBackApplication implements CommandLineRunner {
 
 	private static final Logger logger = LogManager.getLogger(EntelgyPracticasBackApplication.class);
 
-	Connection conn = null;
+	/*Connection conn = null;
 	Statement st = null;
-	String url = "jdbc:derby:empresaDB";
+	String url = "jdbc:derby:empresaDB";*/
 
 	public static void main(String[] args) {
 		SpringApplication.run(EntelgyPracticasBackApplication.class, args);
@@ -34,7 +40,7 @@ public class EntelgyPracticasBackApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		logger.trace("Entering application. Creating tables");
+		logger.info("Entering application. Creating tables");
 		createTables();
 	}
 
@@ -87,11 +93,11 @@ public class EntelgyPracticasBackApplication implements CommandLineRunner {
 //				"ALTER TABLE empleados ADD CONSTRAINT FK_JEFE_EMP FOREIGN KEY (jefeID) REFERENCES empleados (nDIEmp) ON DELETE NO ACTION ON UPDATE NO ACTION");
 
 		/* THIRD WAY, using EmbeddedDatabaseBuilder + read from scipt */
-		EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();
-		EmbeddedDatabase db = builder.setType(EmbeddedDatabaseType.DERBY).addScript("db/empdbcreate.sql").build();
-		// do stuff against the db (EmbeddedDatabase extends javax.sql.DataSource)
-		// db.shutdown();
+//		EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();
+//		EmbeddedDatabase db = builder.setType(EmbeddedDatabaseType.DERBY).addScript("db/empdbcreate.sql").build();
+//		// do stuff against the db (EmbeddedDatabase extends javax.sql.DataSource)
+//		// db.shutdown();
 
-		logger.trace("Tables departamentos and empleados created.");
+		logger.info("Tables departamentos and empleados created.");
 	}
 }

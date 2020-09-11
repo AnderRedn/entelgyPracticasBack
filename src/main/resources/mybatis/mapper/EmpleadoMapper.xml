@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mybatis.mapper.EmpleadoMapper">
+
+	<!--resultMap type='Empleado' id='EmpleadoList'>
+        <id property='nDIEmp' column='nDIEmp'/>
+        <result property='nomEmp' column='nomEmp'/>
+        <result property='sexEmp' column='sexEmp'/>    
+        <result property='fecNac' column='fecNac'/>
+		<result property='fecIncorporacion' column='fecIncorporacion'/> 
+		<result property='salEmp' column='salEmp'/> 
+		<result property='comisionE' column='comisionE'/> 
+		<result property='cargoE' column='cargoE'/> 
+		<result property='jefeID' column='jefeID'/>		
+		<result property='codDepto' column='codDepto'/>
+    </resultMap-->   
+	<!-- typeAlias type="entelgyPracticasBack.model.Empleado" alias="Empleado"/-->
+	
+	<select id="selectAllEmp" resultType="entelgyPracticasBack.model.Empleado">
+		SELECT * FROM Empleados
+	</select>
+  
+	<select id="selectEmpCargo" resultType="entelgyPracticasBack.model.Empleado">
+		SELECT * FROM Empleados WHERE cargoE = #{cargo}
+	</select>
+  
+	<select id="selectEmpNomSal" resultType="entelgyPracticasBack.model.Empleado">
+		SELECT nomEmp, salEmp FROM Empleados
+	</select>
+	
+	<select id="selectVendShortByName" resultType="entelgyPracticasBack.model.Empleado">
+		SELECT * FROM Empleados WHERE cargoE = 'Vendedor' ORDER BY nomEmp ASC
+	</select>
+	
+	<select id="selectEmpNomCargoShortBySal" resultType="entelgyPracticasBack.model.Empleado">
+		SELECT nomEmp, cargoE FROM Empleados ORDER BY salEmp ASC
+	</select>
+	
+	<select id="selectEmpSalComiFromDpt2000ShortByComi" resultType="entelgyPracticasBack.model.Empleado">
+		SELECT salEmp, comisionE FROM Empleados WHERE codDepto = '2000' ORDER BY comisionE ASC
+	</select>
+	
+	<select id="selectEmpComi" resultType="entelgyPracticasBack.model.Empleado">
+		SELECT DISTINCT comisionE FROM Empleados
+	</select>
+	
+	<select id="selectEmpSum" resultType="entelgyPracticasBack.model.Empleado">
+		SELECT nomEmp, salEmp+500 FROM Empleados WHERE codDepto = '3000' ORDER BY nomEmp ASC
+	</select>
+</mapper>

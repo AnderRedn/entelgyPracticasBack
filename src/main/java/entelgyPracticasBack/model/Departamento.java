@@ -1,7 +1,13 @@
 package entelgyPracticasBack.model;
 
-public class Departamento {
+import java.io.Serializable;
 
+public class Departamento implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String codDepto;
 	private String nombreDpto;
 	private String ciudad;
@@ -39,4 +45,11 @@ public class Departamento {
 		this.codDirector = codDirector;
 	}
 
+	@Override
+	public String toString() {
+		return "Departamento [codDepto=" + codDepto + ", nombreDpto=" + nombreDpto + ", ciudad=" + ciudad
+				+ ", codDirector=" + codDirector + "]";
+	}
+	
+	
 }

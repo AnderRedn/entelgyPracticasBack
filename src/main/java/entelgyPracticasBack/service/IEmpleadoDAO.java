@@ -1,4 +1,4 @@
-package entelgyPracticasBack.datos;
+package entelgyPracticasBack.service;
 
 import java.util.List;
 

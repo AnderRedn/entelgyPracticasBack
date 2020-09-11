@@ -1,8 +1,14 @@
 package entelgyPracticasBack.model;
 
+import java.io.Serializable;
 import java.sql.Date;
 
-public class Empleado {
+public class Empleado implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	private String nDIEmp;
 	private String nomEmp;
@@ -94,5 +100,14 @@ public class Empleado {
 	public void setCodDepto(String codDepto) {
 		this.codDepto = codDepto;
 	}
+
+	@Override
+	public String toString() {
+		return "Empleado [nDIEmp=" + nDIEmp + ", nomEmp=" + nomEmp + ", sexEmp=" + sexEmp + ", fecNac=" + fecNac
+				+ ", fecIncorporacion=" + fecIncorporacion + ", salEmp=" + salEmp + ", comisionE=" + comisionE
+				+ ", cargoE=" + cargoE + ", jefeID=" + jefeID + ", codDepto=" + codDepto + "]";
+	}
+	
+	
 
 }
