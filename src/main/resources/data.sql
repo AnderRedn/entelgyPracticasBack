@@ -19,9 +19,10 @@ INSERT INTO empleados VALUES ('000000004444', 'Maria Perez', 'F', '12/11/1965', 
 INSERT INTO empleados VALUES ('000000005555', 'Andy Aurre', 'M', '02/03/1990', '11/02/2010', 1400.00, 120.0, 'Vendedor', '000000002222', '2000');
 INSERT INTO empleados VALUES ('000011110000', 'Katalin Legen', 'F', '02/03/1990', '04/02/2010', 1400.00, 110.0, 'Vendedor', '000000002222', '2000');
 
-INSERT INTO empleados VALUES ('000000008888', 'Dede Dan', 'F', '02/03/1990', '07/02/2010', 1100.00, 10.0, 'Operario', '000000001111', '3000');
+
 INSERT INTO empleados VALUES ('000000009999', 'Cece Can', 'M', '02/03/1990', '08/02/2010', 1050.00, 15.0, 'Operario', '000000001111', '3000');
 INSERT INTO empleados VALUES ('000022220000', 'Eheh Ean', 'F', '02/03/1990', '02/02/2010', 1110.00, 2.0, 'Operario', '000000001111', '3000');
+INSERT INTO empleados VALUES ('000000008888', 'Dede Dan', 'F', '02/03/1990', '07/02/2010', 1100.00, 10.0, 'Operario', '000000001111', '3000');
 INSERT INTO empleados VALUES ('000033330000', 'Fefe Fan', 'M', '02/03/1990', '03/02/2010', 1150.00, 5.0, 'Operario', '000000001111', '3000');
 INSERT INTO empleados VALUES ('000044440000', 'Gege Gan', 'F', '02/03/1990', '10/02/2010', 1000.00, 7.0, 'Operario', '000000001111', '3000');
 
