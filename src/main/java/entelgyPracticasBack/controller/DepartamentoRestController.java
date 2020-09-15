@@ -13,12 +13,12 @@ import entelgyPracticasBack.model.Departamento;
 
 @RestController
 @RequestMapping("/rest/empresa")
-public class DepartamentoController {
+public class DepartamentoRestController {
 	private final DepartamentoDAO deptDao;
 
-	private static final Logger logger = LogManager.getLogger(DepartamentoController.class);
+	private static final Logger logger = LogManager.getLogger(DepartamentoRestController.class);
 
-	public DepartamentoController(DepartamentoDAO deptDao) {
+	public DepartamentoRestController(DepartamentoDAO deptDao) {
 		this.deptDao = deptDao;
 	}
 

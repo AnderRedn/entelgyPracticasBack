@@ -14,12 +14,12 @@ import entelgyPracticasBack.model.Empleado;
 
 @RestController
 @RequestMapping("/rest/empresa")
-public class EmpleadoController {
+public class EmpleadoRestController {
 	private final EmpleadoDAO empDao;
 
-	private static final Logger logger = LogManager.getLogger(EmpleadoController.class);
+	private static final Logger logger = LogManager.getLogger(EmpleadoRestController.class);
 
-	public EmpleadoController(EmpleadoDAO empDao) {
+	public EmpleadoRestController(EmpleadoDAO empDao) {
 		this.empDao = empDao;
 	}
 
