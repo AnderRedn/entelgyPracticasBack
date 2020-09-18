@@ -2,60 +2,23 @@ package entelgyPracticasBack.service;
 
 import java.util.List;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
-
-import entelgyPracticasBack.dao.EmpleadoDAO;
 import entelgyPracticasBack.model.Empleado;
 
-@Service
-public class EmpleadoService implements IEmpleadoService {
-	@Autowired
-	private EmpleadoDAO empDao;
+public interface EmpleadoService {
+	List<Empleado> selectAllEmp();
 
-	private static final Logger logger = LogManager.getLogger(EmpleadoService.class);
+	List<Empleado> selectEmpCargo(String cargo);
 
-	public List<Empleado> selectAllEmp() {
-		logger.info("Select all employees.");
-		return this.empDao.selectAllEmp();
-	}
+	List<Empleado> selectEmpNomSal();
 
-	public List<Empleado> selectEmpCargo(@PathVariable String cargo) {
-		logger.info("Select employees by position.");
-		return this.empDao.selectEmpCargo(cargo);
-	}
+	List<Empleado> selectVendShortByName();
 
-	public List<Empleado> selectEmpNomSal() {
-		logger.info("Select employees name and salary.");
-		return this.empDao.selectEmpNomSal();
-	}
+	List<Empleado> selectEmpNomCargoShortBySal();
 
-	public List<Empleado> selectVendShortByName() {
-		logger.info("Select salesman ordered by name.");
-		return this.empDao.selectVendShortByName();
-	}
+	List<Empleado> selectEmpSalComiFromDpt2000ShortByComi();
 
-	public List<Empleado> selectEmpNomCargoShortBySal() {
-		logger.info("Select employees name and position ordered by salary.");
-		return this.empDao.selectEmpNomCargoShortBySal();
-	}
+	List<Empleado> selectEmpComi();
 
-	public List<Empleado> selectEmpSalComiFromDpt2000ShortByComi() {
-		logger.info("Select employees' salary and commissions of dpt 2000 ordered by commission.");
-		return this.empDao.selectEmpSalComiFromDpt2000ShortByComi();
-	}
-
-	public List<Empleado> selectEmpComi() {
-		logger.info("Select all commissions.");
-		return this.empDao.selectEmpComi();
-	}
-
-	public List<Empleado> selectEmpSum() {
-		logger.info("Salary to pay employees of dpt 3000 after summing 500 ordered by name.");
-		return this.empDao.selectEmpSum();
-	}
+	List<Empleado> selectEmpSum();
 
 }

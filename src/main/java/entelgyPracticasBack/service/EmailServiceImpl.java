@@ -1,4 +1,4 @@
-package entelgyPracticasBack.util;
+package entelgyPracticasBack.service;
 
 import java.io.File;
 
@@ -16,12 +16,12 @@ import org.springframework.mail.javamail.MimeMessagePreparator;
 import org.springframework.stereotype.Service;
 
 @Service("emailService")
-public class EmailService {
+public class EmailServiceImpl implements EmailService{
 
 	@Autowired
 	private JavaMailSender mailSender;
 
-	private static final Logger logger = LogManager.getLogger(EmailService.class);
+	private static final Logger logger = LogManager.getLogger(EmailServiceImpl.class);
 
 	private final String TO = "";
 	private final String FROM = "";
