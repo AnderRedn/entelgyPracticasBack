@@ -9,11 +9,22 @@
 		resultType="entelgyPracticasBack.model.WeatherSelect">
 		SELECT * FROM Weather
 	</select>
+	
+	<select id="selectAllWeatherEmp"
+		resultType="entelgyPracticasBack.model.WeatherEmp">
+		SELECT * FROM weatherEmp
+	</select>
 
 	<insert id="insertWeather">
 		insert into Weather (country, name,  localtimeC, observation_time, temperature, wind_speed, wind_dir, precip, humidity)
 		values (#{location.country},#{location.name},#{location.localtimeC},#{current.observation_time},#{current.temperature},
 		#{current.wind_speed},#{current.wind_dir},#{current.precip},#{current.humidity})
+	</insert>
+	
+	<insert id="insertWeatherQuery">
+		insert into weatherEmp (nDIEmp, country, name,  localtimeC, observation_time, temperature, wind_speed, wind_dir, precip, humidity)
+		values (#{nDIEmp},#{country},#{name},#{localtimeC},#{observation_time},#{temperature},
+		#{wind_speed},#{wind_dir},#{precip},#{humidity})
 	</insert>
 
 </mapper>

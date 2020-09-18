@@ -1,4 +1,4 @@
-package entelgyPracticasBack.controller;
+package entelgyPracticasBack.service;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -15,31 +15,33 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import entelgyPracticasBack.controller.WeatherController;
+import entelgyPracticasBack.dao.EmpleadoDAO;
 import entelgyPracticasBack.dao.WeatherDAO;
 import entelgyPracticasBack.model.Weather;
+import entelgyPracticasBack.model.WeatherEmp;
 import entelgyPracticasBack.model.WeatherSelect;
-import entelgyPracticasBack.service.EmailService;
+import entelgyPracticasBack.util.EmailService;
 import entelgyPracticasBack.util.WeatherExcelWriter;
 
-@RestController
-@RequestMapping("/rest/tiempo")
-@Component
-public class WeatherRestController {
+@Service
+public class WeatherService implements IWeatherService {
 	@Autowired
 	private WeatherDAO weathDao;
 
 	@Autowired
+	private EmpleadoDAO empDao;
+
+	@Autowired
 	private EmailService emailService;
 
-	private static final Logger logger = LogManager.getLogger(WeatherRestController.class);
+	private static final Logger logger = LogManager.getLogger(WeatherService.class);
 	private final String ACCESS_KEY = "194a049cedbc41295ac29d7559f9d0c1";
-	private final String QUERY = "BILBAO";
-	private String url = "http://api.weatherstack.com/current?access_key=" + ACCESS_KEY + "&query=" + QUERY;
+	private final String QUERYB = "BILBAO";
+	private String url = "http://api.weatherstack.com/current?access_key=" + ACCESS_KEY + "&query=";
 
 	private static final SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
 
@@ -47,7 +49,6 @@ public class WeatherRestController {
 	 * Mapping for /bilbao that returns .xlsx file with the weather of Bilbao every
 	 * day at 8am.
 	 */
-	@GetMapping("/bilbao")
 	public ResponseEntity<InputStreamResource> selectAllWeather() {
 		logger.info("Select all weathers.");
 		ByteArrayInputStream in = null;
@@ -66,16 +67,30 @@ public class WeatherRestController {
 
 	}
 
+	public List<WeatherEmp> selectAllWeatherEmp() {
+		logger.info("Select all employees' weather.");
+		return this.weathDao.selectAllWeatherEmp();
+	}
+
 	/**
-	 * Scheduled method that saves the weather of Bilbao every hour.
+	 * Scheduled method that saves the weather of locations every hour.
 	 */
 	@Scheduled(fixedRate = 3600000)
 	public void insertWeatherBio() {
 		logger.info("The time is now {}", dateFormat.format(new Date()));
 		RestTemplate restTemplate = new RestTemplate();
-		Weather weather = restTemplate.getForObject(url, Weather.class);
-		logger.info(weather.toString());
+		Weather weather = restTemplate.getForObject(url + QUERYB, Weather.class);
+		logger.info("Tiempo a guardar: " + weather.toString());
 		weathDao.insertWeather(weather);
+//		
+//		List<Empleado> empleadosList = empDao.selectAllEmp();
+//		for (Empleado empleado : empleadosList) {
+//			weather = restTemplate.getForObject(url+empleado.getLocalidad(), Weather.class);
+//			WeatherEmp wEmp = new WeatherEmp(weather);
+//			wEmp.setnDIEmp(empleado.getnDIEmp());
+//			logger.info("Tiempo a guardar: "+weather.toString()+ " para empleado "+ empleado.getnDIEmp());
+//			weathDao.insertWeatherQuery(wEmp);
+//		}
 	}
 
 	/**

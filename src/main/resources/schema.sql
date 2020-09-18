@@ -16,7 +16,9 @@ CREATE TABLE empleados (
   comisionE FLOAT NOT NULL,
   cargoE VARCHAR(15) NOT NULL,
   jefeID VARCHAR(12),
-  codDepto varchar(4) NOT NULL
+  codDepto varchar(4) NOT NULL, 
+  localidad varchar(30) not null, 
+  password varchar(64) NOT NULL
 );
 
 
@@ -36,3 +38,18 @@ CREATE TABLE weather (
   precip INT NOT NULL,
   humidity INT NOT NULL  
 );
+
+CREATE TABLE weatherEmp (
+  nDIEmp VARCHAR(12) NOT NULL,
+  country VARCHAR(60) NOT NULL,
+  name VARCHAR(60) NOT NULL,
+  localtimeC VARCHAR(20) NOT NULL,
+  observation_time VARCHAR(10) NOT NULL,
+  temperature INT NOT NULL, 
+  wind_speed INT NOT NULL,
+  wind_dir VARCHAR(10) NOT NULL, 
+  precip INT NOT NULL,
+  humidity INT NOT NULL  
+);
+
+ALTER TABLE weatherEmp ADD CONSTRAINT FK_EMP_W FOREIGN KEY (nDIEmp) REFERENCES empleados (nDIEmp) ON DELETE NO ACTION ON UPDATE NO ACTION;

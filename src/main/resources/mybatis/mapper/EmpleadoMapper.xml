@@ -49,4 +49,8 @@
 	<select id="selectEmpSum" resultType="entelgyPracticasBack.model.Empleado">
 		SELECT nomEmp, (salEmp+500.00) FROM Empleados WHERE codDepto = '3000' ORDER BY nomEmp ASC
 	</select>
+	
+	<select id="selectEmpById" resultType="entelgyPracticasBack.model.Empleado">
+		SELECT * FROM Empleados WHERE nDIEmp = #{id}
+	</select>
 </mapper>

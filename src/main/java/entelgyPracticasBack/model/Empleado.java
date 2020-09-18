@@ -20,6 +20,8 @@ public class Empleado implements Serializable {
 	private String cargoE;
 	private String jefeID;
 	private String codDepto;
+	private String localidad;
+	private String password;
 
 	public String getnDIEmp() {
 		return nDIEmp;
@@ -101,13 +103,28 @@ public class Empleado implements Serializable {
 		this.codDepto = codDepto;
 	}
 
+	public String getLocalidad() {
+		return localidad;
+	}
+
+	public void setLocalidad(String localidad) {
+		this.localidad = localidad;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
 	@Override
 	public String toString() {
 		return "Empleado [nDIEmp=" + nDIEmp + ", nomEmp=" + nomEmp + ", sexEmp=" + sexEmp + ", fecNac=" + fecNac
 				+ ", fecIncorporacion=" + fecIncorporacion + ", salEmp=" + salEmp + ", comisionE=" + comisionE
-				+ ", cargoE=" + cargoE + ", jefeID=" + jefeID + ", codDepto=" + codDepto + "]";
+				+ ", cargoE=" + cargoE + ", jefeID=" + jefeID + ", codDepto=" + codDepto + ", localidad=" + localidad
+				+ ", password=" + password + "]";
 	}
-	
-	
 
 }
