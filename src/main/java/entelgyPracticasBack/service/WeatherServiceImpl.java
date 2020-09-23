@@ -19,6 +19,7 @@ import org.springframework.web.client.RestTemplate;
 
 import entelgyPracticasBack.dao.IEmpleadoDAO;
 import entelgyPracticasBack.dao.IWeatherDAO;
+import entelgyPracticasBack.model.Empleado;
 import entelgyPracticasBack.model.Weather;
 import entelgyPracticasBack.model.WeatherEmp;
 import entelgyPracticasBack.model.WeatherSelect;
@@ -79,15 +80,15 @@ public class WeatherServiceImpl implements WeatherService {
 		Weather weather = restTemplate.getForObject(url + QUERYB, Weather.class);
 		logger.info("Tiempo a guardar: " + weather.toString());
 		weathDao.insertWeather(weather);
-//		
-//		List<Empleado> empleadosList = empDao.selectAllEmp();
-//		for (Empleado empleado : empleadosList) {
-//			weather = restTemplate.getForObject(url+empleado.getLocalidad(), Weather.class);
-//			WeatherEmp wEmp = new WeatherEmp(weather);
-//			wEmp.setnDIEmp(empleado.getnDIEmp());
-//			logger.info("Tiempo a guardar: "+weather.toString()+ " para empleado "+ empleado.getnDIEmp());
-//			weathDao.insertWeatherQuery(wEmp);
-//		}
+		
+		List<Empleado> empleadosList = empDao.selectAllEmp();
+		for (Empleado empleado : empleadosList) {
+			weather = restTemplate.getForObject(url+empleado.getLocalidad(), Weather.class);
+			WeatherEmp wEmp = new WeatherEmp(weather);
+			wEmp.setnDIEmp(empleado.getnDIEmp());
+			logger.info("Tiempo a guardar: "+weather.toString()+ " para empleado "+ empleado.getnDIEmp());
+			weathDao.insertWeatherQuery(wEmp);
+		}
 	}
 
 	/**
