@@ -1,0 +1,20 @@
+[
+    {
+        "codDepto": "1000",
+        "nombreDpto": "DPTO_1",
+        "ciudad": "ZAMPELANA",
+        "codDirector": "000000002222"
+    },
+    {
+        "codDepto": "2000",
+        "nombreDpto": "DPTO_2",
+        "ciudad": "LEZABETZU",
+        "codDirector": ""
+    },
+    {
+        "codDepto": "3000",
+        "nombreDpto": "DPTO_3",
+        "ciudad": "SONDERIO",
+        "codDirector": "000000002222"
+    }
+]
