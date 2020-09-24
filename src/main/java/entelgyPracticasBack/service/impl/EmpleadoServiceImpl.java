@@ -1,4 +1,4 @@
-package entelgyPracticasBack.service;
+package entelgyPracticasBack.service.impl;
 
 import java.util.List;
 
@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import entelgyPracticasBack.dao.IEmpleadoDAO;
 import entelgyPracticasBack.model.Empleado;
+import entelgyPracticasBack.service.EmpleadoService;
 
 @Service
 public class EmpleadoServiceImpl implements EmpleadoService {

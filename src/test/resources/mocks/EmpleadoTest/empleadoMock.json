@@ -1,0 +1,44 @@
+[
+    {
+        "nDIEmp": "000000003333",
+        "nomEmp": "Anton Zamarripa",
+        "sexEmp": "M",
+        "fecNac": "1972-07-01",
+        "fecIncorporacion": "1986-12-02",
+        "salEmp": 1500.0,
+        "comisionE": 0.0,
+        "cargoE": "Secretari@",
+        "jefeID": "000000001111",
+        "codDepto": "1000",
+        "localidad": "Larrabezua",
+        "password": "1234"
+    },
+    {
+        "nDIEmp": "000000006666",
+        "nomEmp": "Beatriz Esteban",
+        "sexEmp": "F",
+        "fecNac": "1985-07-01",
+        "fecIncorporacion": "2000-11-02",
+        "salEmp": 1450.0,
+        "comisionE": 0.0,
+        "cargoE": "Secretari@",
+        "jefeID": "000000002222",
+        "codDepto": "2000",
+        "localidad": "Zamudio",
+        "password": "abcd"
+    },
+    {
+        "nDIEmp": "000000007777",
+        "nomEmp": "Carlos Eldel",
+        "sexEmp": "M",
+        "fecNac": "1985-07-01",
+        "fecIncorporacion": "1995-10-02",
+        "salEmp": 1400.0,
+        "comisionE": 0.0,
+        "cargoE": "Secretari@",
+        "jefeID": "000000002222",
+        "codDepto": "2000",
+        "localidad": "Derio",
+        "password": "1234"
+    }
+]

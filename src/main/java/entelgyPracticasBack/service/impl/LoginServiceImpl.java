@@ -1,4 +1,4 @@
-package entelgyPracticasBack.service;
+package entelgyPracticasBack.service.impl;
 
 import java.util.Base64;
 
@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import entelgyPracticasBack.dao.IEmpleadoDAO;
 import entelgyPracticasBack.exception.UserNotExistException;
 import entelgyPracticasBack.model.Empleado;
+import entelgyPracticasBack.service.LoginService;
 import entelgyPracticasBack.util.JwtUtil;
 
 @Service

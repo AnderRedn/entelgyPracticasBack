@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import entelgyPracticasBack.model.Empleado;
 import entelgyPracticasBack.service.EmpleadoService;
-import entelgyPracticasBack.service.EmpleadoServiceImpl;
 
 @RestController
 @RequestMapping("/rest/empresa")

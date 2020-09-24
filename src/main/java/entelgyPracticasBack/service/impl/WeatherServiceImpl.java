@@ -1,4 +1,4 @@
-package entelgyPracticasBack.service;
+package entelgyPracticasBack.service.impl;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -23,6 +23,8 @@ import entelgyPracticasBack.model.Empleado;
 import entelgyPracticasBack.model.Weather;
 import entelgyPracticasBack.model.WeatherEmp;
 import entelgyPracticasBack.model.WeatherSelect;
+import entelgyPracticasBack.service.EmailService;
+import entelgyPracticasBack.service.WeatherService;
 import entelgyPracticasBack.util.WeatherExcelWriter;
 
 @Service

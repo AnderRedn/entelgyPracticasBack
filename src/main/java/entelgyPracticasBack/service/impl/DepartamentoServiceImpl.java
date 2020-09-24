@@ -1,4 +1,4 @@
-package entelgyPracticasBack.service;
+package entelgyPracticasBack.service.impl;
 
 import java.util.List;
 
@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import entelgyPracticasBack.dao.IDepartamentoDAO;
 import entelgyPracticasBack.model.Departamento;
+import entelgyPracticasBack.service.DepartamentoService;
 
 @Service
 public class DepartamentoServiceImpl implements DepartamentoService {

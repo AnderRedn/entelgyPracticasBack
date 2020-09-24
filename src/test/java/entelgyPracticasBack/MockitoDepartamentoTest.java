@@ -24,12 +24,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import entelgyPracticasBack.dao.IDepartamentoDAO;
 import entelgyPracticasBack.model.Departamento;
-import entelgyPracticasBack.service.DepartamentoServiceImpl;
+import entelgyPracticasBack.service.impl.DepartamentoServiceImpl;
 import entelgyPracticasBack.util.MockUtils;
 
 @ExtendWith(MockitoExtension.class)
 @RunWith(SpringRunner.class)
-public class MockitoDeptTest {
+public class MockitoDepartamentoTest {
 
 	@Mock
 	private IDepartamentoDAO deptDAO;
