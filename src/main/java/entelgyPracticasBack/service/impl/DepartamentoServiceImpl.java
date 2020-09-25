@@ -17,15 +17,15 @@ public class DepartamentoServiceImpl implements DepartamentoService {
 	@Autowired
 	private IDepartamentoDAO deptDao;
 
-	private static final Logger logger = LogManager.getLogger(DepartamentoServiceImpl.class);
+	private static final Logger LOGGER = LogManager.getLogger(DepartamentoServiceImpl.class);
 
 	public List<Departamento> selectAllDept() {
-		logger.info("Select all departments.");
+		LOGGER.info("Select all departments.");
 		return deptDao.selectAllDept();
 	}
 
 	public List<Departamento> selectDeptNomb() {
-		logger.info("List the name of the departments.");
+		LOGGER.info("List the name of the departments.");
 		return deptDao.selectDeptNomb();
 	}
 

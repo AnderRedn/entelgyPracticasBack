@@ -25,7 +25,7 @@ public class WeatherExcelWriter {
 	private static String[] columns = { "Country", "City", "Observation Time", "Temperature", "Wind Speed(km/h)",
 			"Wind Direction", "Precipitation", "Humidity", "Local Time" };
 
-	private static final Logger logger = LogManager.getLogger(WeatherExcelWriter.class);
+	private static final Logger LOGGER = LogManager.getLogger(WeatherExcelWriter.class);
 
 	/**
 	 * Method that creates an excel workbook with the list received.
@@ -36,7 +36,7 @@ public class WeatherExcelWriter {
 	 */
 	public static ByteArrayInputStream createWeatherExcel(List<WeatherSelect> weatherList)
 			throws IOException, InvalidFormatException {
-		logger.info("Creating Excel.");
+		LOGGER.info("Creating Excel.");
 
 		ByteArrayOutputStream out = new ByteArrayOutputStream();
 
@@ -86,7 +86,7 @@ public class WeatherExcelWriter {
 		}
 
 		workbook.write(out);
-		logger.info("Excel created.");
+		LOGGER.info("Excel created.");
 		return new ByteArrayInputStream(out.toByteArray());
 	}
 
@@ -97,7 +97,7 @@ public class WeatherExcelWriter {
 	 * @throws InvalidFormatException
 	 */
 	public static void createWeatherFileExcel(List<WeatherSelect> weatherList) throws IOException, InvalidFormatException {
-		logger.info("Creating Excel.");
+		LOGGER.info("Creating Excel.");
 
 		// Create a Workbook
 		Workbook workbook = new XSSFWorkbook(); // new HSSFWorkbook() for generating `.xls` file
@@ -150,7 +150,7 @@ public class WeatherExcelWriter {
 		
 		// Closing the workbook
 		workbook.close();
-		logger.info("Excel created.");
+		LOGGER.info("Excel created.");
 
 	}
 }

@@ -23,7 +23,7 @@ public class EmailServiceImpl implements EmailService{
 	@Autowired
 	private JavaMailSender mailSender;
 
-	private static final Logger logger = LogManager.getLogger(EmailServiceImpl.class);
+	private static final Logger LOGGER = LogManager.getLogger(EmailServiceImpl.class);
 
 	private final String TO = "";
 	private final String FROM = "";
@@ -56,7 +56,7 @@ public class EmailServiceImpl implements EmailService{
 			try {
 				mailSender.send(preparator);
 			} catch (MailException ex) {
-				logger.info("MessagingException when sending the mail.");
+				LOGGER.info("MessagingException when sending the mail.");
 			}
 		}
 	}

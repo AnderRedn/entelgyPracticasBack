@@ -17,45 +17,45 @@ public class EmpleadoServiceImpl implements EmpleadoService {
 	@Autowired
 	private IEmpleadoDAO empDao;
 
-	private static final Logger logger = LogManager.getLogger(EmpleadoServiceImpl.class);
+	private static final Logger LOGGER = LogManager.getLogger(EmpleadoServiceImpl.class);
 
 	public List<Empleado> selectAllEmp() {
-		logger.info("Select all employees.");
+		LOGGER.info("Select all employees.");
 		return this.empDao.selectAllEmp();
 	}
 
 	public List<Empleado> selectEmpCargo(@PathVariable String cargo) {
-		logger.info("Select employees by position.");
+		LOGGER.info("Select employees by position.");
 		return this.empDao.selectEmpCargo(cargo);
 	}
 
 	public List<Empleado> selectEmpNomSal() {
-		logger.info("Select employees name and salary.");
+		LOGGER.info("Select employees name and salary.");
 		return this.empDao.selectEmpNomSal();
 	}
 
 	public List<Empleado> selectVendShortByName() {
-		logger.info("Select salesman ordered by name.");
+		LOGGER.info("Select salesman ordered by name.");
 		return this.empDao.selectVendShortByName();
 	}
 
 	public List<Empleado> selectEmpNomCargoShortBySal() {
-		logger.info("Select employees name and position ordered by salary.");
+		LOGGER.info("Select employees name and position ordered by salary.");
 		return this.empDao.selectEmpNomCargoShortBySal();
 	}
 
 	public List<Empleado> selectEmpSalComiFromDpt2000ShortByComi() {
-		logger.info("Select employees' salary and commissions of dpt 2000 ordered by commission.");
+		LOGGER.info("Select employees' salary and commissions of dpt 2000 ordered by commission.");
 		return this.empDao.selectEmpSalComiFromDpt2000ShortByComi();
 	}
 
 	public List<Empleado> selectEmpComi() {
-		logger.info("Select all commissions.");
+		LOGGER.info("Select all commissions.");
 		return this.empDao.selectEmpComi();
 	}
 
 	public List<Empleado> selectEmpSum() {
-		logger.info("Salary to pay employees of dpt 3000 after summing 500 ordered by name.");
+		LOGGER.info("Salary to pay employees of dpt 3000 after summing 500 ordered by name.");
 		return this.empDao.selectEmpSum();
 	}
 

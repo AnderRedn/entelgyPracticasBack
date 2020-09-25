@@ -15,7 +15,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class MockUtils {
 	
-	private static final Log Logger = LogFactory.getLog(MockUtils.class);
+	private static final Log LOGGER = LogFactory.getLog(MockUtils.class);
 	
 	private ObjectMapper objectMapper = new ObjectMapper();
 	
@@ -26,15 +26,15 @@ public class MockUtils {
 				ObjectInputStream  ois = new ObjectInputStream(in);
 				return ois .readObject();
 			}
-			Logger.error("************************* ");
-			Logger.info(" getMockFile objeto NULO filepath:"+filePath);
-			Logger.error("************************* ");
+			LOGGER.error("************************* ");
+			LOGGER.info(" getMockFile objeto NULO filepath:"+filePath);
+			LOGGER.error("************************* ");
 			return null;
 		} catch (Exception e) {
-			Logger.error("************************* ");
-			Logger.info(" getMockFile objeto NULO filepath:"+filePath);
-			Logger.error(" getMockFile e:"+e);
-			Logger.error("************************* ");
+			LOGGER.error("************************* ");
+			LOGGER.info(" getMockFile objeto NULO filepath:"+filePath);
+			LOGGER.error(" getMockFile e:"+e);
+			LOGGER.error("************************* ");
 			throw e;
 		}
 	}
@@ -52,15 +52,15 @@ public class MockUtils {
 					return IOUtils.toString(in, "UTF-8");
 				}
 			}
-			Logger.error("************************* ");
-			Logger.info(" getStringFromFile objeto NULO filepath:"+filePath);
-			Logger.error("************************* ");
+			LOGGER.error("************************* ");
+			LOGGER.info(" getStringFromFile objeto NULO filepath:"+filePath);
+			LOGGER.error("************************* ");
 			return null;
 		} catch (Exception e) {
-			Logger.error("************************* ");
-			Logger.info(" getStringFromFile objeto NULO filepath:"+filePath);
-			Logger.error(" getMockFile e:"+e);
-			Logger.error("************************* ");
+			LOGGER.error("************************* ");
+			LOGGER.info(" getStringFromFile objeto NULO filepath:"+filePath);
+			LOGGER.error(" getMockFile e:"+e);
+			LOGGER.error("************************* ");
 			throw  e;
 		}
 	}

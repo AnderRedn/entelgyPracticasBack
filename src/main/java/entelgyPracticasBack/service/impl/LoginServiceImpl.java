@@ -23,10 +23,10 @@ public class LoginServiceImpl implements LoginService{
 	@Autowired
 	private JwtUtil jwtUtil;
 
-	private static final Logger logger = LogManager.getLogger(LoginServiceImpl.class);
+	private static final Logger LOGGER = LogManager.getLogger(LoginServiceImpl.class);
 
 	public ResponseEntity<String> login(String authorization) {
-		logger.info("Checking authorization of login");
+		LOGGER.info("Checking authorization of login");
 		String[] values = null;
 		if (authorization != null && authorization.toLowerCase().startsWith("basic")) {
 			String base64Credentials = authorization.substring("Basic".length()).trim();
@@ -40,14 +40,14 @@ public class LoginServiceImpl implements LoginService{
 		try {
 			emp = empDao.selectEmpById(values[0]);
 		} catch (UserNotExistException e) {
-			logger.warn("User does not exist in DDBB");
+			LOGGER.warn("User does not exist in DDBB");
 		}
 
 		if (emp != null && emp.getPassword().equals(values[1])) {
-			logger.info("Login authorized");
+			LOGGER.info("Login authorized");
 			return new ResponseEntity<String>(jwtUtil.getToken(emp.getnDIEmp()), HttpStatus.OK);
 		}
-		logger.info("Login unauthorized");
+		LOGGER.info("Login unauthorized");
 		return new ResponseEntity<String>(HttpStatus.UNAUTHORIZED);
 	}
 

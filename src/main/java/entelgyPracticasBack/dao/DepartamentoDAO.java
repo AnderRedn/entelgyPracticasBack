@@ -17,15 +17,15 @@ public class DepartamentoDAO implements IDepartamentoDAO{
 	private SqlSession sqlSession;
 	private String ruteMapper = "mybatis.mapper.DepartamentoMapper";
 
-	private static final Logger logger = LogManager.getLogger(DepartamentoDAO.class);
+	private static final Logger LOGGER = LogManager.getLogger(DepartamentoDAO.class);
 
 	public List<Departamento> selectAllDept() {
-		logger.info("selectAllDept");
+		LOGGER.info("selectAllDept");
 		return this.sqlSession.selectList(ruteMapper + ".selectAllDept");
 	}
 
 	public List<Departamento> selectDeptNomb() {
-		logger.info("selectDeptNomb");
+		LOGGER.info("selectDeptNomb");
 		return this.sqlSession.selectList(ruteMapper + ".selectAllDept");
 	}
 

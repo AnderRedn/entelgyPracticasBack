@@ -41,7 +41,7 @@ public class MockitoEmpleadoTest {
 	private MockUtils mockUtils = new MockUtils();
 
 	private static final String MOCK_TEST_BASE = "mocks/EmpleadoTest/";
-	private static final String LISTA_EMPLEADOS_MOCKS = "empleadoMock.json";
+	private static final String LISTA_EMPLEADOS_POSITION_MOCKS = "empleadoMock.json";
 
 	@Before
 	public void init() {
@@ -52,7 +52,7 @@ public class MockitoEmpleadoTest {
 		List<Empleado> mockEmpleadoModeloRes = new ArrayList<Empleado>();
 		try {
 			mockEmpleadoModeloRes = mapper.readValue(
-					mockUtils.getStringFromFile(MOCK_TEST_BASE + LISTA_EMPLEADOS_MOCKS),
+					mockUtils.getStringFromFile(MOCK_TEST_BASE + LISTA_EMPLEADOS_POSITION_MOCKS),
 					new TypeReference<List<Empleado>>() {
 					});
 

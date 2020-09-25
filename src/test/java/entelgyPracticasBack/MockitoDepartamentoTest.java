@@ -71,4 +71,14 @@ public class MockitoDepartamentoTest {
 		assertFalse(resDepartamentos.isEmpty());
 		assertEquals(mockDepartamentoModeloRes, resDepartamentos);
 	}
+	
+	@Test
+	public void getDepartmentName() throws JsonProcessingException, URISyntaxException {
+		List<Departamento> mockDepartamentoModeloRes = initDepartamentoServiceMockJson();
+		Mockito.when(deptDAO.selectDeptNomb()).thenReturn(mockDepartamentoModeloRes);
+		List<Departamento> resDepartamentos = deptServ.selectDeptNomb();
+		
+		assertFalse(resDepartamentos.isEmpty());
+		assertEquals(mockDepartamentoModeloRes, resDepartamentos);
+	}
 }

@@ -18,25 +18,25 @@ public class WeatherDAO implements IWeatherDAO{
 	private SqlSession sqlSession;
 	private String ruteMapper = "mybatis.mapper.WeatherMapper";
 
-	private static final Logger logger = LogManager.getLogger(WeatherDAO.class);
+	private static final Logger LOGGER = LogManager.getLogger(WeatherDAO.class);
 
 	public List<WeatherSelect> selectAllWeather() {
-		logger.info("selectAllWeather");
+		LOGGER.info("selectAllWeather");
 		return sqlSession.selectList(ruteMapper + ".selectAllWeather");
 	}
 
 	public List<WeatherEmp> selectAllWeatherEmp() {
-		logger.info("selectAllWeatherEmp");
+		LOGGER.info("selectAllWeatherEmp");
 		return sqlSession.selectList(ruteMapper + ".selectAllWeatherEmp");
 	}
 
 	public int insertWeather(Weather weather) {
-		logger.info("insertWeather");
+		LOGGER.info("insertWeather");
 		return sqlSession.insert(ruteMapper + ".insertWeather", weather);
 	}
 
 	public int insertWeatherQuery(WeatherEmp weatherEmp) {
-		logger.info("insertWeatherQuery");
+		LOGGER.info("insertWeatherQuery");
 		return sqlSession.insert(ruteMapper + ".insertWeatherQuery", weatherEmp);
 	}
 }

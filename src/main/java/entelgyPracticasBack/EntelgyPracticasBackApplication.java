@@ -18,7 +18,7 @@ import org.springframework.web.filter.CorsFilter;
 @EnableScheduling
 public class EntelgyPracticasBackApplication implements CommandLineRunner {
 
-	private static final Logger logger = LogManager.getLogger(EntelgyPracticasBackApplication.class);
+	private static final Logger LOGGER = LogManager.getLogger(EntelgyPracticasBackApplication.class);
 
 	public static void main(String[] args) {
 		SpringApplication.run(EntelgyPracticasBackApplication.class, args);
@@ -26,7 +26,7 @@ public class EntelgyPracticasBackApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		logger.info("Entering application. Creating tables");
+		LOGGER.info("Entering application. Creating tables");
 	}
 
 	@Bean

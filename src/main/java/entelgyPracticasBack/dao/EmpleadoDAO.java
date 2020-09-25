@@ -18,50 +18,50 @@ public class EmpleadoDAO implements IEmpleadoDAO{
 	private SqlSession sqlSession;
 	private String ruteMapper = "mybatis.mapper.EmpleadoMapper";
 
-	private static final Logger logger = LogManager.getLogger(EmpleadoDAO.class);
+	private static final Logger LOGGER = LogManager.getLogger(EmpleadoDAO.class);
 
 	public List<Empleado> selectAllEmp() {
-		logger.info("selectAllEmp");
+		LOGGER.info("selectAllEmp");
 		return this.sqlSession.selectList(ruteMapper + ".selectAllEmp");
 	}
 
 	public List<Empleado> selectEmpCargo(String cargo) {
-		logger.info("selectEmpCargo");
+		LOGGER.info("selectEmpCargo");
 		return this.sqlSession.selectList(ruteMapper + ".selectEmpCargo", cargo);
 	}
 
 	public List<Empleado> selectEmpNomSal() {
-		logger.info("selectEmpNomSal");
+		LOGGER.info("selectEmpNomSal");
 		return this.sqlSession.selectList(ruteMapper + ".selectEmpNomSal");
 	}
 
 	public List<Empleado> selectVendShortByName() {
-		logger.info("selectVendShortByName");
+		LOGGER.info("selectVendShortByName");
 		return this.sqlSession.selectList(ruteMapper + ".selectVendShortByName");
 	}
 
 	public List<Empleado> selectEmpNomCargoShortBySal() {
-		logger.info("selectEmpNomCargoShortBySal");
+		LOGGER.info("selectEmpNomCargoShortBySal");
 		return this.sqlSession.selectList(ruteMapper + ".selectEmpNomCargoShortBySal");
 	}
 
 	public List<Empleado> selectEmpSalComiFromDpt2000ShortByComi() {
-		logger.info("selectEmpSalComiFromDpt2000ShortByComi");
+		LOGGER.info("selectEmpSalComiFromDpt2000ShortByComi");
 		return this.sqlSession.selectList(ruteMapper + ".selectEmpSalComiFromDpt2000ShortByComi");
 	}
 
 	public List<Empleado> selectEmpComi() {
-		logger.info("selectEmpComi");
+		LOGGER.info("selectEmpComi");
 		return this.sqlSession.selectList(ruteMapper + ".selectEmpComi");
 	}
 
 	public List<Empleado> selectEmpSum() {
-		logger.info("selectEmpSum");
+		LOGGER.info("selectEmpSum");
 		return this.sqlSession.selectList(ruteMapper + ".selectEmpSum");
 	}
 
 	public Empleado selectEmpById(String id) throws UserNotExistException {
-		logger.info("selectEmpById");
+		LOGGER.info("selectEmpById");
 		Empleado emp = this.sqlSession.selectOne(ruteMapper + ".selectEmpById", id);
 		if (emp == null) {
 			throw new UserNotExistException();

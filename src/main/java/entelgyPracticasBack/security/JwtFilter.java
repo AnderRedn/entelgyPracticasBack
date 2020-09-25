@@ -27,7 +27,7 @@ public class JwtFilter implements Filter {
 	@Value("${jwt.secret}")
 	private String secret;
 
-	private static final Logger logger = LogManager.getLogger(JwtFilter.class);
+	private static final Logger LOGGER = LogManager.getLogger(JwtFilter.class);
 
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
@@ -43,7 +43,7 @@ public class JwtFilter implements Filter {
 
 		if (authHeader == null || !authHeader.startsWith("Bearer ")) {
 			response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-			logger.info("Header without token. UNAUTHORIZED");
+			LOGGER.info("Header without token. UNAUTHORIZED");
 			return;
 		}
 
