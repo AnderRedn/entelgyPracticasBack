@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import entelgyPracticasBack.service.LoginService;
+import io.swagger.annotations.ApiOperation;
 
 @RestController
 @RequestMapping("/")
@@ -16,7 +17,8 @@ public class LoginController {
 	@Autowired
 	private LoginService loginServ;
 
-	@PostMapping("/login")
+	@PostMapping(value = "/login")
+	@ApiOperation(value = "Login operation", notes = "Return a token to use in the api given a basic auth.")
 	public ResponseEntity<String> login(@RequestHeader(value = "Authorization") String authorization) {
 		return loginServ.login(authorization);
 	}
